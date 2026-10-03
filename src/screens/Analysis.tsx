@@ -50,6 +50,9 @@ export function Analysis() {
           ))}
         </ol>
       </article>
+      <button type="button" className="btn primary" onClick={() => go('tasks')}>
+        Ver tareas de respuesta
+      </button>
     </section>
   )
 }

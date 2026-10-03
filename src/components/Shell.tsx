@@ -10,6 +10,14 @@ export function Shell({
   showNav?: boolean
 }) {
   const { screen, go } = useDemo()
+  const incidentActive = [
+    'incident',
+    'incident-form',
+    'analysis',
+    'tasks',
+    'review',
+    'notification',
+  ].includes(screen)
 
   return (
     <div className="phone-frame">
@@ -31,23 +39,28 @@ export function Shell({
           </button>
           <button
             type="button"
-            className={screen === 'dashboard' ? 'nav-btn active' : 'nav-btn'}
+            className={
+              screen === 'dashboard' || screen === 'action'
+                ? 'nav-btn active'
+                : 'nav-btn'
+            }
             onClick={() => go('dashboard')}
           >
             Prioridades
           </button>
           <button
             type="button"
-            className={
-              screen === 'incident' ||
-              screen === 'incident-form' ||
-              screen === 'analysis'
-                ? 'nav-btn active'
-                : 'nav-btn'
-            }
+            className={incidentActive ? 'nav-btn active' : 'nav-btn'}
             onClick={() => go('incident')}
           >
             Incidente
+          </button>
+          <button
+            type="button"
+            className={screen === 'timeline' ? 'nav-btn active' : 'nav-btn'}
+            onClick={() => go('timeline')}
+          >
+            Línea de tiempo
           </button>
         </nav>
       )}

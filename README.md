@@ -1,32 +1,77 @@
-# React + TypeScript + Vite
+# ESCUDO PyME
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Ciberseguridad clara para una PyME mexicana: priorizar acciones, verificar que se hicieron y responder un incidente simulado con una persona a cargo.
 
-Currently, two official plugins are available:
+## ¿Para quién es?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Dueña o gerente de una PyME con exposición digital y sin equipo interno de ciberseguridad. En la demo, la empresa sintética es **Clínica Sonrisa CDMX**. El actor operativo es un proveedor de TI externo. La salvaguarda humana es una coordinadora de respuesta nombrada.
 
-## React Compiler
+## Vacío declarado: SME SHIELD
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+El recorte de trabajo no es otro antivirus. Es el puente entre preparación y respuesta: qué importa primero, si la acción se verificó, quién responde y quién decide cuando hay un incidente.
 
-## Expanding the Oxlint configuration
+## Flujo de la demo
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+1. Inicio
+2. Alta sintética de la PyME
+3. Prioridades actuales (sin puntaje de seguridad)
+4. Detalle de acción y estados de verificación
+5. Incidente simulado
+6. Formulario validado
+7. Análisis etiquetado como salida simulada de IA
+8. Tareas, responsable y plazo
+9. Revisión humana
+10. Borrador de notificación
+11. Línea de tiempo del caso
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Dragon Stack
+
+LLM + datos de seguridad estructurados + automatización.
+
+- El LLM (o su fallback simulado) explica, resume y redacta.
+- Los controles, tipos de incidente y acciones viven en datos locales estructurados.
+- La automatización mueve estados: Recomendado → Pendiente de verificación → Verificado por humano; y el caso de incidente hasta el cierre.
+
+## Piso de seguridad
+
+- Solo datos sintéticos.
+- Sin secretos en el repositorio.
+- `.env` y `.env.local` están en `.gitignore`.
+- Los formularios se validan.
+- La IA no cuenta como verificación humana.
+- La app no dice que la organización está segura.
+- No pide contraseñas, llaves privadas ni documentos reales de pacientes.
+
+## Qué es sintético
+
+Empresa, personas, incidente, plazos, coordinadora y marcas de tiempo de la demo.
+
+## Qué es simulado
+
+El análisis y el borrador de notificación. Sin una API real, la interfaz muestra **Salida simulada de IA** / **SALIDA SIMULADA DE IA**. No se llama a un modelo.
+
+## Lo que el producto NO afirma
+
+- No es antivirus, motor de malware ni SOC.
+- No paga rescates, no negocia con atacantes y no envía notificaciones solas.
+- No certifica cumplimiento ni da asesoría legal.
+- No es tecnológicamente superior a Cyber Essentials, Huntress o Coalition; localiza un patrón de preparación y respuesta para una PyME mexicana.
+
+## Cómo correr en local
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Abre la URL local que imprima Vite. El diseño está pensado primero para ~390px; el escritorio también debe funcionar.
+
+## Cómo construir
+
+```bash
+npm run build
+```
+
+## Despliegue futuro en Vercel
+
+Aún no hay despliegue. El siguiente paso previsto es crear el repositorio en GitHub, subir esta historia de Git y hacer el primer deploy en Vercel.
