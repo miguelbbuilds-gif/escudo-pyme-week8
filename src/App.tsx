@@ -4,39 +4,31 @@ import { Landing } from './screens/Landing'
 import { Setup } from './screens/Setup'
 import { Dashboard } from './screens/Dashboard'
 import { ActionDetail } from './screens/ActionDetail'
+import { IncidentSim } from './screens/IncidentSim'
+import { IncidentForm } from './screens/IncidentForm'
+import { Analysis } from './screens/Analysis'
 
 function ScreenRouter() {
   const { screen } = useDemo()
 
-  if (screen === 'landing') {
-    return (
-      <Shell showNav={false}>
-        <Landing />
-      </Shell>
-    )
-  }
-
-  if (screen === 'setup') {
-    return (
-      <Shell>
-        <Setup />
-      </Shell>
-    )
-  }
-
-  if (screen === 'action') {
-    return (
-      <Shell>
-        <ActionDetail />
-      </Shell>
-    )
-  }
-
-  return (
-    <Shell>
+  const content =
+    screen === 'landing' ? (
+      <Landing />
+    ) : screen === 'setup' ? (
+      <Setup />
+    ) : screen === 'action' ? (
+      <ActionDetail />
+    ) : screen === 'incident' ? (
+      <IncidentSim />
+    ) : screen === 'incident-form' ? (
+      <IncidentForm />
+    ) : screen === 'analysis' ? (
+      <Analysis />
+    ) : (
       <Dashboard />
-    </Shell>
-  )
+    )
+
+  return <Shell showNav={screen !== 'landing'}>{content}</Shell>
 }
 
 export default function App() {

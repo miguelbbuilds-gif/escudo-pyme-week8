@@ -36,6 +36,19 @@ export function Shell({
           >
             Prioridades
           </button>
+          <button
+            type="button"
+            className={
+              screen === 'incident' ||
+              screen === 'incident-form' ||
+              screen === 'analysis'
+                ? 'nav-btn active'
+                : 'nav-btn'
+            }
+            onClick={() => go('incident')}
+          >
+            Incidente
+          </button>
         </nav>
       )}
     </div>

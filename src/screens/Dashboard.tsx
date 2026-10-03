@@ -2,7 +2,7 @@ import { StatusBadge } from '../components/StatusBadge'
 import { useDemo } from '../demo/DemoState'
 
 export function Dashboard() {
-  const { sme, actions, openAction } = useDemo()
+  const { sme, actions, openAction, startIncident } = useDemo()
 
   return (
     <section className="stack">
@@ -27,6 +27,9 @@ export function Dashboard() {
           </li>
         ))}
       </ul>
+      <button type="button" className="btn secondary" onClick={startIncident}>
+        Reportar incidente simulado
+      </button>
     </section>
   )
 }
