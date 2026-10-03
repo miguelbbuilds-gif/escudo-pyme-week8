@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { useState, type FormEvent } from 'react'
 import { SIMULATED_INCIDENT_SCENARIO } from '../data/framework'
 import { useDemo } from '../demo/DemoState'
 import { firstZodError, incidentFormSchema } from '../validation'
