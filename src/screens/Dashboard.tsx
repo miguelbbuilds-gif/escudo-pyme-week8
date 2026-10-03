@@ -2,7 +2,7 @@ import { StatusBadge } from '../components/StatusBadge'
 import { useDemo } from '../demo/DemoState'
 
 export function Dashboard() {
-  const { sme, actions } = useDemo()
+  const { sme, actions, openAction } = useDemo()
 
   return (
     <section className="stack">
@@ -14,10 +14,16 @@ export function Dashboard() {
       </p>
       <ul className="card-list">
         {actions.map((action) => (
-          <li key={action.id} className="card">
-            <StatusBadge status={action.status} />
-            <strong>{action.title}</strong>
-            <span className="muted">Responsable: {action.owner}</span>
+          <li key={action.id}>
+            <button
+              type="button"
+              className="card-btn"
+              onClick={() => openAction(action.id)}
+            >
+              <StatusBadge status={action.status} />
+              <strong>{action.title}</strong>
+              <span className="muted">Responsable: {action.owner}</span>
+            </button>
           </li>
         ))}
       </ul>

@@ -6,6 +6,7 @@ import {
   SYSTEM_OPTIONS,
 } from '../data/framework'
 import { useDemo } from '../demo/DemoState'
+import { firstZodError, smeSetupSchema } from '../validation'
 
 export function Setup() {
   const { sme, setSme, go } = useDemo()
@@ -26,22 +27,19 @@ export function Setup() {
 
   function onSubmit(event: FormEvent) {
     event.preventDefault()
-    if (!name.trim() || !industry.trim() || !employees || !location.trim()) {
-      setError('Completa todos los campos de la empresa.')
-      return
-    }
-    if (systems.length === 0) {
-      setError('Selecciona al menos un sistema.')
+    const parsed = smeSetupSchema.safeParse({
+      name,
+      industry,
+      employees,
+      location,
+      systems,
+    })
+    if (!parsed.success) {
+      setError(firstZodError(parsed.error))
       return
     }
     setError(null)
-    setSme({
-      name: name.trim(),
-      industry: industry.trim(),
-      employees,
-      location: location.trim(),
-      systems,
-    })
+    setSme(parsed.data)
     go('dashboard')
   }
 

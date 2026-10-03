@@ -3,6 +3,7 @@ import { Shell } from './components/Shell'
 import { Landing } from './screens/Landing'
 import { Setup } from './screens/Setup'
 import { Dashboard } from './screens/Dashboard'
+import { ActionDetail } from './screens/ActionDetail'
 
 function ScreenRouter() {
   const { screen } = useDemo()
@@ -19,6 +20,14 @@ function ScreenRouter() {
     return (
       <Shell>
         <Setup />
+      </Shell>
+    )
+  }
+
+  if (screen === 'action') {
+    return (
+      <Shell>
+        <ActionDetail />
       </Shell>
     )
   }
