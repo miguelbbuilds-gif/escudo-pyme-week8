@@ -2,6 +2,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -18,6 +19,11 @@ import type {
   SecurityAction,
   SmeProfile,
 } from '../types'
+import {
+  loadDemoSnapshot,
+  markActionCompleteInList,
+  saveDemoSnapshot,
+} from './persist'
 
 type DemoContextValue = {
   screen: Screen
@@ -44,12 +50,34 @@ function nowIso() {
   return new Date().toISOString()
 }
 
+function readStorage() {
+  return typeof sessionStorage === 'undefined' ? null : sessionStorage
+}
+
 export function DemoProvider({ children }: { children: ReactNode }) {
-  const [screen, setScreen] = useState<Screen>('landing')
-  const [sme, setSme] = useState<SmeProfile>(DEFAULT_SME)
-  const [actions, setActions] = useState<SecurityAction[]>(INITIAL_ACTIONS)
-  const [selectedActionId, setSelectedActionId] = useState<string | null>(null)
-  const [incident, setIncident] = useState<IncidentCase | null>(null)
+  const [boot] = useState(() => loadDemoSnapshot(readStorage()))
+  const [screen, setScreen] = useState<Screen>(boot?.screen ?? 'landing')
+  const [sme, setSme] = useState<SmeProfile>(boot?.sme ?? DEFAULT_SME)
+  const [actions, setActions] = useState<SecurityAction[]>(
+    boot?.actions ?? INITIAL_ACTIONS,
+  )
+  const [selectedActionId, setSelectedActionId] = useState<string | null>(
+    boot?.selectedActionId ?? null,
+  )
+  const [incident, setIncident] = useState<IncidentCase | null>(
+    boot?.incident ?? null,
+  )
+
+  useEffect(() => {
+    saveDemoSnapshot(readStorage(), {
+      version: 1,
+      screen,
+      sme,
+      actions,
+      selectedActionId,
+      incident,
+    })
+  }, [screen, sme, actions, selectedActionId, incident])
 
   const go = useCallback((next: Screen) => setScreen(next), [])
 
@@ -59,13 +87,7 @@ export function DemoProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const markActionComplete = useCallback((id: string) => {
-    setActions((current) =>
-      current.map((action) =>
-        action.id === id && action.status === 'recomendado'
-          ? { ...action, status: 'pendiente_verificacion' as ActionStatus }
-          : action,
-      ),
-    )
+    setActions((current) => markActionCompleteInList(current, id))
   }, [])
 
   const verifyActionByHuman = useCallback((id: string) => {
