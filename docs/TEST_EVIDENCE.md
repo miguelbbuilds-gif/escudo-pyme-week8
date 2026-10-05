@@ -39,8 +39,15 @@ Root cause: action statuses live only in React useState. A full page refresh rec
 ## Fix
 
 Commit:  
+`1fbe45c` — fix: persist demo action verification state across refresh
+
 Redeploy URL:  
-Retest result:
+Public production: https://escudo-pyme-week8.vercel.app  
+Deployment: https://escudo-pyme-week8-nk6c8pkx4-miguel-d52d.vercel.app  
+Inspect: https://vercel.com/miguel-d52d/escudo-pyme-week8/AeUoTuWdrwHu6F5sAD1kWte4cyWv
+
+Retest result:  
+Passed on 4 Oct 2026 at 390×844 against https://escudo-pyme-week8.vercel.app (asset `index-BCAUZph_.js`). After marking Activar autenticación multifactor as complete and refreshing, the dashboard stayed on Prioridades actuales and the action remained PENDIENTE DE VERIFICACIÓN. It did not return to RECOMENDADO. The unique deployment URL is protected by Vercel Authentication and was not used for the public retest.
 
 # Persona Test
 
