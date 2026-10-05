@@ -53,16 +53,22 @@ Status: reproduced before fix
 ## Fix
 
 Commit:  
-pending push — `fix: keep bottom navigation aligned on mobile`
+`ccb5148` — fix: keep bottom navigation aligned on mobile
 
 Local preview retest (before deploy):  
-Passed. Vite preview `http://127.0.0.1:4173/` after `npm run build`.
+Passed. Vite preview after `npm run build`.
 
-- Viewport 390×844, nav width 356px: one row, y=749 for all four buttons, height 44px, nav height 65px (was 118px). Labels: Empresa, Prioridades, Incidente, Línea de tiempo.
+- Viewport 390×844, nav width 356px: one row, y=749 for all four buttons, height 44px, nav height 65px (was 118px).
 - Viewport 356×844: one row, all four buttons y=749, height 44px.
 
 Redeploy URL:  
-Retest result:
+Public production: https://escudo-pyme-week8.vercel.app  
+Deployment: https://escudo-pyme-week8-jww1nis8i-miguel-d52d.vercel.app  
+Inspect: https://vercel.com/miguel-d52d/escudo-pyme-week8/CVvytn7gmC1U3GcVk5U6zoJDotX6  
+Served CSS: `/assets/index-47Z4j8ya.css`
+
+Retest result:  
+Passed on production after this deployment. Viewport 390×844 (nav 356×65, one row, all buttons y=749, 80×44). Viewport 356×844 (nav 322×65, one row, all buttons y=749, 71×44). All four labels still present. “Línea de tiempo” no longer sits on a second nav row.
 
 # Persona Test
 
