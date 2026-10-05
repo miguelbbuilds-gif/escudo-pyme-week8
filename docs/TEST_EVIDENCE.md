@@ -73,9 +73,23 @@ Passed on production at viewport 356×844. Nav 322×65, one row, all four button
 # Persona Test
 
 Persona:  
+**SYNTHETIC only** — not a real interview. No real person was interviewed. No real-user quotes.
+
+María, 49. Fictional owner/manager of a two-location dental clinic in Mexico City. Not a cybersecurity expert. External IT provider, no internal security team.
+
 Screenshots tested:  
+Production walkthrough at https://escudo-pyme-week8.vercel.app (390×844), 4 Oct 2026: landing, onboarding, Prioridades actuales, action RECOMENDADO / PENDIENTE DE VERIFICACIÓN / VERIFICADO POR HUMANO, incidente simulado, formulario, análisis, tareas, revisión humana, borrador de notificación, línea de tiempo. Detail: `docs/PERSONA_TEST.md`.
+
 Confusions:  
+MFA acronym; analysis terms (ransomware, credenciales); timeline nav before a case exists; dueña can self-click IT/human verification.
+
 Worst confusion:  
+After **Marcar como hecha**, **PENDIENTE DE VERIFICACIÓN** is resolved by the dueña tapping **Verificación humana / proveedor de TI**, which immediately becomes **VERIFICADO POR HUMANO**. The checkpoint does not look like waiting for the proveedor de TI.
+
 Fix:  
+Action detail copy and button label clarified (see `docs/PERSONA_TEST.md`). Applied locally; production check after deploy.
+
 Commit:  
+pending — `fix: clarify human verification for sme users`
+
 Redeploy URL:

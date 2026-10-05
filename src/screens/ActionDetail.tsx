@@ -43,10 +43,33 @@ export function ActionDetail() {
       </article>
       <article className="card">
         <strong>Estado actual</strong>
-        <p className="muted">
-          La IA no puede marcar esta acción como verificada. Solo una persona
-          (dueña, gerente o proveedor de TI) puede confirmarla.
-        </p>
+        {action.status === 'recomendado' && (
+          <p className="muted">
+            Todavía no está hecha. Pide a tu proveedor de TI que la complete.
+            ESCUDO PyME y la IA no la verifican por ti.
+          </p>
+        )}
+        {action.status === 'pendiente_verificacion' && (
+          <>
+            <p className="muted">
+              Pendiente de verificación significa: ya la marcaste como hecha, y
+              ahora falta que una persona la confirme. En la clínica, eso lo
+              hace el proveedor de TI (o quien sea responsable), no la app.
+            </p>
+            <p className="muted">
+              ESCUDO PyME y la IA no pueden verificar esta acción. El botón de
+              abajo solo simula esa confirmación humana en la demo. No llama a
+              tu proveedor ni comprueba que el trabajo se hizo.
+            </p>
+          </>
+        )}
+        {action.status === 'verificado_humano' && (
+          <p className="muted">
+            En esta demo, una persona simuló la confirmación. Eso no significa
+            que la clínica esté segura; solo que este paso quedó marcado como
+            confirmado.
+          </p>
+        )}
       </article>
       {action.status === 'recomendado' && (
         <button
@@ -63,14 +86,8 @@ export function ActionDetail() {
           className="btn primary"
           onClick={() => verifyActionByHuman(action.id)}
         >
-          Verificación humana / proveedor de TI
+          Simular confirmación del proveedor de TI
         </button>
-      )}
-      {action.status === 'verificado_humano' && (
-        <p className="note">
-          Verificado por una persona. Esto no significa que la clínica esté
-          segura; solo que esta acción fue confirmada.
-        </p>
       )}
     </section>
   )
