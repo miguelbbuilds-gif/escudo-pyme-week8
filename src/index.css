@@ -248,25 +248,28 @@ textarea {
 
 .bottom-nav {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  padding: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  padding: 10px;
   border-top: 1px solid var(--border);
   background: var(--white);
-}
-
-.bottom-nav:has(.nav-btn:nth-child(3)) {
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .nav-btn {
   border: 0;
   background: #f1f5f9;
   border-radius: 12px;
-  padding: 10px 8px;
+  min-height: 44px;
+  padding: 8px 4px;
+  font-size: 0.68rem;
+  line-height: 1.15;
   font-weight: 700;
   color: var(--navy);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .nav-btn.active {
