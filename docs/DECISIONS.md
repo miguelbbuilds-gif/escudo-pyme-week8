@@ -58,6 +58,18 @@ The packet asks for approximately 390px first while still working on desktop.
 
 ---
 
+## Session close — Week 8
+
+- Mechanical test completed.
+- Real mobile navigation bug fixed.
+- Synthetic persona test completed.
+- Human-verification language clarified.
+- Final product verified in production: https://escudo-pyme-week8.vercel.app (bundle `index-Co0rI2Go.js` includes “Simular confirmación del proveedor de TI”).
+
+These are session outcomes, not new product claims. Persona evidence is synthetic only.
+
+---
+
 ## Tomorrow's First Move
 
-Create GitHub repository, push current history, perform first Vercel deployment, then begin mechanical test.
+Week 8 mechanical and synthetic persona work is closed. Remaining optional items: add `docs/mockups/escudo-pyme-mockup.png` when available, and commit `.vercel` in `.gitignore` if desired.
