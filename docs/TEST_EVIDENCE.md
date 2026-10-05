@@ -87,9 +87,14 @@ Worst confusion:
 After **Marcar como hecha**, **PENDIENTE DE VERIFICACIÓN** is resolved by the dueña tapping **Verificación humana / proveedor de TI**, which immediately becomes **VERIFICADO POR HUMANO**. The checkpoint does not look like waiting for the proveedor de TI.
 
 Fix:  
-Action detail copy and button label clarified (see `docs/PERSONA_TEST.md`). Applied locally; production check after deploy.
+Action detail copy and button clarified. Synthetic retest on local preview and on production.
 
 Commit:  
-pending — `fix: clarify human verification for sme users`
+`6dae302` — fix: clarify human verification for sme users
 
-Redeploy URL:
+Redeploy URL:  
+https://escudo-pyme-week8.vercel.app  
+Deployment: https://escudo-pyme-week8-dz0ano439-miguel-d52d.vercel.app
+
+Production verification (390×844):  
+Served `index-Co0rI2Go.js`. After Marcar como hecha: Pendiente de verificación explanation, “ESCUDO PyME y la IA no pueden verificar”, simulation note, button **Simular confirmación del proveedor de TI**. Old button label absent.

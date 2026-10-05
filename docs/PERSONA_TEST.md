@@ -67,4 +67,7 @@ Applied in `src/screens/ActionDetail.tsx`.
 
 ## Redeploy URL
 
-Recorded after production verification.
+https://escudo-pyme-week8.vercel.app  
+Deployment: https://escudo-pyme-week8-dz0ano439-miguel-d52d.vercel.app
+
+Production check (390×844): served `index-Co0rI2Go.js`. Pending screen includes the explanation, AI-cannot-verify line, simulation note, and **Simular confirmación del proveedor de TI**. Old button text was not present.
