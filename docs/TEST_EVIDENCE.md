@@ -63,12 +63,12 @@ Passed. Vite preview after `npm run build`.
 
 Redeploy URL:  
 Public production: https://escudo-pyme-week8.vercel.app  
-Deployment: https://escudo-pyme-week8-jww1nis8i-miguel-d52d.vercel.app  
-Inspect: https://vercel.com/miguel-d52d/escudo-pyme-week8/CVvytn7gmC1U3GcVk5U6zoJDotX6  
+Deployment (this verification): https://escudo-pyme-week8-hru5qvldx-miguel-d52d.vercel.app  
+Inspect: https://vercel.com/miguel-d52d/escudo-pyme-week8/Dnkn9v8gdbQTFZtQ7nsKxC1TbLt2  
 Served CSS: `/assets/index-47Z4j8ya.css`
 
 Retest result:  
-Passed on production after this deployment. Viewport 390×844 (nav 356×65, one row, all buttons y=749, 80×44). Viewport 356×844 (nav 322×65, one row, all buttons y=749, 71×44). All four labels still present. “Línea de tiempo” no longer sits on a second nav row.
+Passed on production at viewport 356×844. Nav 322×65, one row, all four buttons y=749, 71×44. Labels still Empresa, Prioridades, Incidente, Línea de tiempo. Clicks: Empresa → Datos de tu PyME; Prioridades → Prioridades actuales; Incidente → Incidente simulado; Línea de tiempo → Aún no hay un caso simulado. Original wrap-to-second-row bug did not reproduce.
 
 # Persona Test
 
